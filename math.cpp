@@ -48,6 +48,7 @@ ll binomial(ll n, ll r) {
     return ans;
 }
 
+// x以下の素数全列挙
 void make_primes(ll x, V& res) {
     vector<bool> flag(x + 1, false);
     rep2(i, 2, x + 1) {
@@ -60,6 +61,7 @@ void make_primes(ll x, V& res) {
     }
 }
 
+// 素因数分解
 void prime_divise(ll x, V& res, V primes) {
     for (ll t : primes) {
         if (x == 1) break;
@@ -82,5 +84,10 @@ void make_divisors(ll x, V& res) {
             ++pos;
         }
     }
-    _unique(res); // 状況に応じて消す
+    
+    // 状況に応じて消す
+    ll n = res.size();
+    if (res[n/2-1] == res[n/2]) {
+        res.erase(res.begin() + n/2);
+    }
 }
