@@ -91,3 +91,17 @@ void make_divisors(ll x, V& res) {
         res.erase(res.begin() + n/2);
     }
 }
+
+// 行列の回転
+template <typename T> vector<vector<T>> rotate(vector<vector<T>>& m) { const
+    ll n = length(m);
+    vector<vector<T>> r(n, vector<T>(n));
+    rep(i, n) {
+        rep(j, n) {
+            ll i_ = j;
+            ll j_ = -i + n - 1;
+            r[i_][j_] = m[i][j];
+        }
+    }
+    return r;
+}

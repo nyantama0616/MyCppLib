@@ -1,3 +1,4 @@
+// 基本的にTにはポインタ使う
 template <typename T> class Heap {
     vector<T> v;
     function<bool(T, T)> comb;
